@@ -15,7 +15,7 @@ import Xlib.display
 import Xlib.X
 import Xlib.Xutil 
 from openai import OpenAI
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QScrollArea, QFrame
 from PyQt5.QtCore import Qt
 
 load_dotenv()
@@ -31,11 +31,11 @@ monitor_size = {
 ASSISTANT_PROMPT = """
 You are a Self-Operating Computer and Quiz Assistant.
 
-View the screenshot identify the quiz question and answers.
+View the screenshot identify all present quiz question(s), and answers if applicable.
 
-Answer the question and provide the correct answer. Explain your reasoning.
+Answer the question(s) and provide the correct answer. Explain your reasoning.
 
-Answer in the format:
+Answer in the format for each question:
 QUESTION: <question>
 ANSWER: <answer>
 REASONING: <reasoning>
@@ -99,7 +99,7 @@ def ask_assistant(file_path):
                 ],
                 }
             ],
-            max_tokens=500,
+            max_tokens=1200,
         )
 
         content = response.choices[0].message.content
@@ -136,8 +136,16 @@ class ApplicationWindow(QWidget):
         # Create a label with some text
         self.label = QLabel("welcome to sightseer")
         self.label.setWordWrap(True)  # Enable word wrap
+
+        # Create a scroll area, add the label to it, and set the widget resize policy
+        scroll_area = QScrollArea()
+        scroll_area.setWidgetResizable(True)  # Allow the widget to be resized
+        scroll_area.setWidget(self.label)  # Set the label as the scroll area's widget
+        scroll_area.setFrameShape(QFrame.NoFrame)  # Set frame shape to NoFrame to remove the border
+
+        # Add the scroll area to the layout instead of the label
+        layout.addWidget(scroll_area)
         self.label.setAlignment(Qt.AlignTop)  # Align text to the top
-        layout.addWidget(self.label)
 
         # Create a button that calls run_workflow_button when clicked
         button = QPushButton("Run")
