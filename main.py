@@ -42,6 +42,8 @@ REASONING: <reasoning>
 
 If there are multiple questions, answer each of them. Be direct and straightforward in reasoning. If the question is simple, explain in 1-2 sentences. If it is complex or multi-step reasoning, use 3-4 sentences.
 
+ONLY have the formatted answer in your response, nothing else. If you cannot process the image or are unable to answer the question, type "Unable to answer" and move on to the next question.
+
 """
 
 def screenshot_name():
