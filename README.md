@@ -1,6 +1,6 @@
 # Sightseer
 
-Welcome to Sightseer, a program designed to assist with quizzes and exams using GPT-4V technology.
+Welcome to Sightseer, a program designed to assist with quizzes and exams using GPT-4V.
 
 ## Features
 
