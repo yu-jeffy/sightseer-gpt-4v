@@ -49,7 +49,7 @@ def screenshot_name():
     current_timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     # Define the base file name
-    base_file_name = "screenshot"
+    base_file_name = "screenshots/screenshot"
 
     # Combine the base file name with the formatted timestamp and file extension
     file_path = f"{base_file_name}_{current_timestamp}.png"
@@ -125,7 +125,7 @@ class ApplicationWindow(QWidget):
 
     def initUI(self):
         self.setWindowTitle("Sightseer-GPT4V")
-        self.setGeometry(100, 100, 350, 700)  # Set the geometry (x, y, width, height)
+        self.setGeometry(0, 200, 350, 700)  # Set the geometry (x, y, width, height)
 
         # Create a vertical layout
         layout = QVBoxLayout()
