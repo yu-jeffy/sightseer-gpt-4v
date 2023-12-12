@@ -8,12 +8,15 @@ import subprocess
 import pyautogui
 import argparse
 import platform
+import datetime
 from dotenv import load_dotenv
 from PIL import Image, ImageDraw, ImageFont, ImageGrab
 import Xlib.display
 import Xlib.X
 import Xlib.Xutil 
 from openai import OpenAI
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton
+from PyQt5.QtCore import Qt
 
 load_dotenv()
 
@@ -35,17 +38,28 @@ Answer the question and provide the correct answer. Explain your reasoning.
 Answer in the format:
 QUESTION: <question>
 ANSWER: <answer>
+REASONING: <reasoning>
 
-If there are multiple questions, answer each of them. Be direct and straightforward.
+If there are multiple questions, answer each of them. Be direct and straightforward in reasoning. If the question is simple, explain in 1-2 sentences. If it is complex or multi-step reasoning, use 3-4 sentences.
 
 """
 
-file_path = "screenshot.png"
+def screenshot_name():
+    # Get the current timestamp
+    current_timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+    # Define the base file name
+    base_file_name = "screenshot"
+
+    # Combine the base file name with the formatted timestamp and file extension
+    file_path = f"{base_file_name}_{current_timestamp}.png"
+
+    return file_path
 
 def capture_screen_with_cursor(file_path):
     user_platform = platform.system()
-
     if user_platform == "Windows":
+
         screenshot = pyautogui.screenshot()
         screenshot.save(file_path)
     elif user_platform == "Linux":
@@ -92,6 +106,52 @@ def ask_assistant(file_path):
     except Exception as e:
         print(f"Error: {e}")
 
-capture_screen_with_cursor(file_path)
-print(ask_assistant(file_path))
+def workflow():
+    file_path = screenshot_name()
+    capture_screen_with_cursor(file_path)
+    response = ask_assistant(file_path)
+    return response
 
+class ApplicationWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.workflow = workflow
+        self.initUI()
+
+    def run_workflow_button(self):
+        # Call the external function and update the label
+        response = self.workflow()
+        self.label.setText(response)
+
+    def initUI(self):
+        self.setWindowTitle("Sightseer-GPT4V")
+        self.setGeometry(100, 100, 350, 700)  # Set the geometry (x, y, width, height)
+
+        # Create a vertical layout
+        layout = QVBoxLayout()
+
+        # Create a label with some text
+        self.label = QLabel("welcome to sightseer")
+        self.label.setWordWrap(True)  # Enable word wrap
+        self.label.setAlignment(Qt.AlignTop)  # Align text to the top
+        layout.addWidget(self.label)
+
+        # Create a button that calls run_workflow_button when clicked
+        button = QPushButton("Run")
+        button.clicked.connect(self.run_workflow_button)
+        layout.addWidget(button)
+
+        # Set the layout on the main window
+        self.setLayout(layout)
+
+# Create the application object
+app = QApplication([])
+
+# Create the main window
+window = ApplicationWindow()
+
+# Show the window
+window.show()
+
+# Run the application
+app.exec_()

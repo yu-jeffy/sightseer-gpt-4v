@@ -2,3 +2,4 @@ openai
 python-dotenv
 PyAutoGUI
 python3-xlib
+PyQt5
