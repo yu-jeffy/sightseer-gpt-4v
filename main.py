@@ -107,6 +107,7 @@ def ask_assistant(file_path):
     
     except Exception as e:
         print(f"Error: {e}")
+        return (f"Error: {e}")
 
 def workflow():
     file_path = screenshot_name()
