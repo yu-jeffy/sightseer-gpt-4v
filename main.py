@@ -31,7 +31,7 @@ monitor_size = {
 ASSISTANT_PROMPT = """
 You are a Self-Operating Computer and Quiz Assistant.
 
-View the screenshot identify all present quiz question(s), and answers if applicable.
+View the screenshot identify all present quiz question(s), and answers if applicable. Ignore the window titled Sightseer-GPT4V.
 
 Answer the question(s) and provide the correct answer. Explain your reasoning.
 
