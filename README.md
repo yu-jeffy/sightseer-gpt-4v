@@ -1,6 +1,8 @@
 # Sightseer
 
-Welcome to Sightseer, a program designed to assist with quizzes and exams using GPT-4V.
+Welcome to Sightseer, a program designed to assist with quizzes and exams using GPT-4V. Run in a sidebar window, this program will interpret questions on screen and provide assistance towards answering them, without providing explicit answers.
+
+*GPT-4V may have issues interpreting mathematical formulas. It also lacks the ability to interpret and produce code at this time*
 
 ## Features
 
@@ -39,12 +41,21 @@ To run Sightseer on your local machine, please follow these steps:
 
 ## Usage
 
+### Regular Mode
 To start using Sightseer, run the following command in your terminal:
 
 ```bash
-python main.py
+python sightseer.py
 ```
-After starting the application, open a quiz or exam side-by-side to the Sightseer window. Click the `Run` button to process the questions on screen.
+After starting the application, open a quiz or exam side-by-side to the Sightseer window. Click the `Run` button to process the questions on screen. The program will provide assistance for finding the solution, without giving it away.
+
+### Unlocked Mode
+A version where Sightseer provides the answers is included. Run the following command in your terminal:
+
+```bash
+python sightseer_unlocked.py
+```
+After starting the application, open a quiz or exam side-by-side to the Sightseer window. Click the `Run` button to process the questions on screen. The program will provide answers and reasoning for each decision.
 
 ### Disclaimer for Responsible Use and Academic Integrity
 
