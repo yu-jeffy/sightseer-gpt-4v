@@ -2,7 +2,9 @@
 
 Welcome to Sightseer, a program designed to assist with quizzes and exams using GPT-4V. Run in a sidebar window, this program will interpret questions on screen and provide assistance towards answering them, without providing explicit answers.
 
-*GPT-4V may have issues interpreting mathematical formulas. It also lacks the ability to interpret and produce code at this time*
+*GPT-4V may have issues interpreting mathematical formulas. It also lacks the ability to interpret and produce code at this time.*
+
+**By using Sightseer, you agree to use it ethically, lawfully, and in compliance with your educational institution's rules on academic integrity and honesty. The creators of Sightseer will not be held responsible for any misuse of the tool or any repercussions that come from such misuse.**
 
 ## Features
 
@@ -66,5 +68,3 @@ Sightseer is provided as an educational tool intended for responsible use only. 
 - **Ethical Conduct**: Utilize Sightseer in good faith for legitimate educational purposes that do not infringe upon the principles of academic integrity.
 - **Honesty**: Do not use Sightseer to engage in cheating, plagiarism, or any deceitful actions in an academic environment.
 - **Compliance with Policies**: Always comply with the rules and regulations set forth by your educational institution or testing body regarding the use of external assistance.
-
-**By using Sightseer, you agree to use it ethically, lawfully, and in compliance with your educational institution's rules on academic integrity and honesty. The creators of Sightseer will not be held responsible for any misuse of the tool or any repercussions that come from such misuse.**
