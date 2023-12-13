@@ -127,7 +127,7 @@ class ApplicationWindow(QWidget):
 
     def initUI(self):
         self.setWindowTitle("Sightseer-GPT4V")
-        self.setGeometry(0, 200, 350, 950)  # Set the geometry (x, y, width, height)
+        self.setGeometry(0, 0, 350, 950)  # Set the geometry (x, y, width, height)
 
         # Create a vertical layout
         layout = QVBoxLayout()
