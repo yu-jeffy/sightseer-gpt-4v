@@ -11,7 +11,7 @@ Welcome to Sightseer, a program designed to assist with quizzes and exams using 
 - **Intuitive Interface**: Simple UI to get assistance in a sidebar window.
 - **AI-powered insights**: Utilizes GPT-4V to process visual information and answer textually.
 
-![demo_pic](readme/sightseer_demo.png)
+![demo_pic](readme/sightseer_main_demo.png)
 
 ## Prerequisites
 
@@ -56,6 +56,8 @@ A version where Sightseer provides the answers is included. Run the following co
 python sightseer_unlocked.py
 ```
 After starting the application, open a quiz or exam side-by-side to the Sightseer window. Click the `Run` button to process the questions on screen. The program will provide answers and reasoning for each decision.
+
+![demo_pic](readme/sightseer_demo.png)
 
 ### Disclaimer for Responsible Use and Academic Integrity
 
